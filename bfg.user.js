@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Better Filters for GitHub
 // @namespace    http://joelwalters.com/
-// @version      1.0
+// @version      1.0.1
 // @description  Provides filters for GitHub Projects.
 // @author       Joel Walters
 // @match        https://github.com/*
@@ -19,7 +19,7 @@
     var $filterLabel = $('<select class="ght-filter"><option value="">- Filter by Label -</option></select>');
     var $filterAssignee = $('<select class="ght-filter"><option value="">- Filter by Assignee -</option></select>');
     var $filterClear = $('<a href="#">&times; clear filters</a>');
-    var $controls = $('<div class="ght-controls"></div>');
+    var $controls = $('<div class="ght-controls pt-3"></div>');
     var counts = {};
     var values = {};
     var cardCount;
