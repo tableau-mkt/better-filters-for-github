@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Better Filters for GitHub
 // @namespace    http://joelwalters.com/
-// @version      1.0.1
+// @version      1.0.2
 // @description  Provides filters for GitHub Projects.
 // @author       Joel Walters
 // @match        https://github.com/*
@@ -15,10 +15,10 @@
     'use strict';
     // jshint multistr:true
 
-    var $toggleLabels = $('<div><input type="checkbox" id="ghtToggleLabels" name="ghtToggleLabels"> <label for="ghtToggleLabels">Show Labels</label></div>');
-    var $filterLabel = $('<select class="ght-filter"><option value="">- Filter by Label -</option></select>');
-    var $filterAssignee = $('<select class="ght-filter"><option value="">- Filter by Assignee -</option></select>');
-    var $filterClear = $('<a href="#">&times; clear filters</a>');
+    var $toggleLabels = $('<div><label><input type="checkbox" id="ghtToggleLabels" name="ghtToggleLabels">Show Labels</label></div>');
+    var $filterLabel = $('<select class="ght-filter form-select select-sm"><option value="">- Filter by Label -</option></select>');
+    var $filterAssignee = $('<select class="ght-filter form-select select-sm"><option value="">- Filter by Assignee -</option></select>');
+    var $filterClear = $('<a href="#" class="btn btn-sm"><svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"></path></svg> clear filters</a>');
     var $controls = $('<div class="ght-controls pt-3"></div>');
     var counts = {};
     var values = {};
