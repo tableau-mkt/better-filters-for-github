@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Better Filters for GitHub
 // @namespace    http://joelwalters.com/
-// @version      1.0.3
+// @version      1.0.4
 // @description  Provides filters for GitHub Projects.
 // @author       Joel Walters
 // @match        https://github.com/*
