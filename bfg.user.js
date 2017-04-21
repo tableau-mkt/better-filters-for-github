@@ -72,6 +72,7 @@
       $filterAssignee.val('');
       options.assignee = '';
       applyAndSaveOptions();
+      return false;
     });
 
     $toggleLabels.find('input').on('change', function () {
