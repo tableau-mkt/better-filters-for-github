@@ -6,5 +6,5 @@ It looks like this:
 
 # Install
 - [Install Tampermonkey for Chrome](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en)
-- [Install Better Filters for GitHub](https://gist.github.com/jtwalters/51cc2ed5923f6e53fd34927809c9acff/raw/bfg.user.js)
+- [Install Better Filters for GitHub](https://github.com/tableau-mkt/better-filters-for-github/raw/master/bfg.user.js)
 - Visit a Project board on GitHub and check out the new options!
