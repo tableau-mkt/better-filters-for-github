@@ -15,6 +15,7 @@
     'use strict';
     // jshint multistr:true
 
+    var $project = $('.project-columns');
     var $filterLabel = $('<select class="ght-filter form-select select-sm"><option value="">- Filter by Label -</option></select>');
     var $filterAssignee = $('<select class="ght-filter form-select select-sm"><option value="">- Filter by Assignee -</option></select>');
     var $filterClear = $('<a href="#" class="btn btn-sm"><svg class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" width="12" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.48 8l3.75 3.75-1.48 1.48L6 9.48l-3.75 3.75-1.48-1.48L4.52 8 .77 4.25l1.48-1.48L6 6.52l3.75-3.75 1.48 1.48z"></path></svg> clear filters</a>');
@@ -46,8 +47,8 @@
 
     function applyAndSaveOptions() {
       var filters = {};
-      $('.project-columns .labels').toggleClass('ght-hidden', !options.showLabels);
-      $('.project-columns .issue-card').each(function () {
+      $project.find('.labels').toggleClass('ght-hidden', !options.showLabels);
+      $project.find('.issue-card').each(function () {
         var showAllLabels = options.label === '',
           showAllAssignees = options.assignee === '';
 
@@ -66,6 +67,10 @@
 
     GM_addStyle('.ght-item { margin: .5em; }');
     GM_addStyle('.ght-hidden { display: none !important; }');
+
+    $(document).on('submit', function () {
+      setTimeout(applyAndSaveOptions, 1000);
+    });
 
     $filterClear.on('click', function () {
       $filterLabel.val('');
@@ -93,14 +98,14 @@
 
     // Check for async loaded cards.
     intervalTimeout = setInterval(function checkLabels() {
-      cardCount = $('.project-columns .issue-card').length;
+      cardCount = $project.find('.issue-card').length;
       checkCount++;
       if (checkCount > 5) {
         clearInterval(intervalTimeout);
       }
 
       // Get all assignees.
-      values.assignees = $('.project-columns .avatar-stack .avatar').map(function () {
+      values.assignees = $project.find('.avatar-stack .avatar').map(function () {
         return this.alt;
       });
       // Create a lookup  for count
@@ -108,7 +113,7 @@
       values.assignees = _.uniq(values.assignees.sort());
 
       // Get all labels.
-      values.labels = $('.project-columns .issue-card-label').map(function () {
+      values.labels = $project.find('.issue-card-label').map(function () {
         return this.innerText;
       });
       // Create a lookup table for count (occurrences).
@@ -129,7 +134,7 @@
         applyAndSaveOptions();
 
         // Highlight "Blocked/Waiting" issues with a light pink/red background.
-        $('.project-columns [aria-label~="status-blocked_waiting"]').closest('.issue-card').removeClass('bg-white').css('background-color', '#fee');
+        $project.find('[aria-label~="status-blocked_waiting"]').closest('.issue-card').removeClass('bg-white').css('background-color', '#fee');
       }
       prevCardCount = cardCount;
     }, 1000);
