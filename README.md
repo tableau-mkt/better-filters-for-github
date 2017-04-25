@@ -2,7 +2,7 @@ Better Filters for GitHub was written to help a large Project board more managea
 
 It looks like this:
 
-![image](https://cloud.githubusercontent.com/assets/153132/25295672/5ebc02d0-2699-11e7-8d31-96e1aaacf9ab.png)
+![image](https://cloud.githubusercontent.com/assets/6118532/25408933/c53f3e2c-29c4-11e7-8d40-e53bb432c59c.png)
 
 # Install
 - [Install Tampermonkey for Chrome](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en)
