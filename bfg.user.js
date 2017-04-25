@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Better Filters for GitHub
 // @namespace    http://joelwalters.com/
-// @version      1.0.4
+// @version      1.0.5
 // @description  Provides filters for GitHub Projects.
 // @author       Joel Walters
 // @match        https://github.com/*
@@ -126,6 +126,9 @@
         });
         setInputsFromOptions();
         applyAndSaveOptions();
+
+        // Highlight "Blocked/Waiting" issues with a light pink/red background.
+        $('.project-columns [aria-label~="status-blocked_waiting"]').closest('.issue-card').removeClass('bg-white').css('background-color', '#fee');
       }
       prevCardCount = cardCount;
     }, 1000);
