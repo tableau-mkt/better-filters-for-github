@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Better Filters for GitHub
 // @namespace    http://joelwalters.com/
-// @version      1.0.7
+// @version      1.0.8
 // @description  Provides filters for GitHub Projects.
 // @author       Joel Walters
 // @match        https://github.com/*
@@ -55,8 +55,8 @@
         filters.label = showAllLabels || $(this).find('.issue-card-label').filter(function () {
             return this.innerText === options.label;
           }).length > 0;
-        filters.assignee = showAllAssignees || $(this).find('.avatar-stack .avatar').filter(function () {
-            return this.alt === options.assignee;
+        filters.assignee = showAllAssignees || $(this).find('.AvatarStack .avatar').filter(function () {
+            return this.getAttribute('data-assignee') === options.assignee;
           }).length > 0;
         $(this).toggleClass('ght-hidden', !_.every(filters, function (isMatch) {
           return isMatch;
@@ -105,8 +105,8 @@
       }
 
       // Get all assignees.
-      values.assignees = $project.find('.avatar-stack .avatar').map(function () {
-        return this.alt;
+      values.assignees = $project.find('.AvatarStack .avatar').map(function () {
+        return this.getAttribute('data-assignee');
       });
       // Create a lookup  for count
       counts.assignees = _.countBy(values.assignees);
